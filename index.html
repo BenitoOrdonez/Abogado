@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es" style="--primary: #c5a059; --primary-hover: #a3813c; --primary-light: #f7f4ed; --dark-navy: #0f1b2b; --navy-light: #1c2d42; --dark-text: #1e293b; --bg: #f8fafc;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title">Lavanderos & Cía. - Defensoría Laboral y Estudio Jurídico</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Reset y Variables --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--bg);
+        }
+        
+        h1, h2, h3, .brand-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* --- Navegación --- */
+        .navbar {
+            background: var(--dark-navy);
+            padding: 1.1rem 0;
+            box-shadow: 0 4px 20px rgba(15, 27, 43, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { 
+            color: #ffffff; 
+            font-size: 1.25rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(197, 160, 89, 0.12);
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            color: var(--primary);
+        }
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        .logo-subtitle {
+            font-size: 0.65rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .nav-links { list-style: none; display: flex; align-items: center; gap: 24px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #e2e8f0; 
+            font-weight: 600; 
+            transition: all 0.3s; 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            letter-spacing: 1px; 
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--primary); }
+        .menu-toggle svg { width: 30px; height: 30px; }
+
+        /* --- Hero Section --- */
+        .hero { 
+            color: white; 
+            padding: 130px 0 100px 0; 
+            text-align: center; 
+            background-position: center !important; 
+            background-size: cover !important; 
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 27, 43, 0.88) 0%, rgba(15, 27, 43, 0.95) 100%);
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.18);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 18px; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 700; 
+            color: #ffffff;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+            line-height: 1.25;
+        }
+        .hero p { 
+            font-size: 1.15rem; 
+            max-width: 780px; 
+            margin: 0 auto 36px auto; 
+            opacity: 0.92; 
+            color: #e2e8f0;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* --- Botones de Acción (Ancho Idéntico) --- */
+        .action-buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .btn-action-equal {
+            flex: 1 1 270px;
+            max-width: 300px;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 24px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .btn-action-equal svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+        .btn-maps {
+            background-color: var(--primary);
+            color: #0f1b2b !important;
+            border-color: var(--primary);
+        }
+        .btn-maps:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4);
+        }
+
+        .btn-appointment {
+            background-color: var(--navy-light);
+            color: #ffffff !important;
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+        .btn-appointment:hover {
+            background-color: #253a54;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(15, 27, 43, 0.5);
+        }
+
+        /* --- Secciones --- */
+        .section-padding { padding: 90px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-title { 
+            font-size: 2.2rem; 
+            color: var(--dark-navy); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            margin: 12px auto 0 auto;
+            border-radius: 2px;
+        }
+        .section-subtitle { 
+            color: #64748b; 
+            font-size: 1.05rem; 
+            max-width: 750px;
+            margin: 12px auto 0 auto;
+        }
+
+        /* --- Nosostros --- */
+        .about-section { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 50px; 
+            padding: 90px 0; 
+            align-items: center; 
+        }
+        .about-text, .about-image { flex: 1; min-width: 320px; }
+        .about-img { 
+            width: 100%; 
+            height: 440px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            box-shadow: 0 15px 35px rgba(15, 27, 43, 0.15);
+            border: 4px solid #ffffff;
+        }
+        .hours-box { 
+            margin-top: 28px; 
+            padding: 24px; 
+            background: var(--primary-light); 
+            border-left: 5px solid var(--primary); 
+            border-radius: 6px; 
+        }
+
+        .lawyer-badge-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 18px 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .lawyer-badge-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--dark-navy);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        /* --- Sección Equipo (Fotos Abogado y Equipo) --- */
+        .team-section {
+            background: #f1f5f9;
+            padding: 90px 0;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        .team-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(15, 27, 43, 0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(197, 160, 89, 0.2);
+            border-color: var(--primary);
+        }
+        .team-img-wrapper {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        .team-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .team-card:hover .team-img-wrapper img {
+            transform: scale(1.05);
+        }
+        .team-info {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .team-name {
+            font-size: 1.25rem;
+            color: var(--dark-navy);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .team-role {
+            color: var(--primary-hover);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+        .team-desc {
+            color: #475569;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* --- Tarjetas de Servicios y Reseña Práctica --- */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+            gap: 32px; 
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(15, 27, 43, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .service-card.highlighted {
+            border: 2px solid var(--primary);
+            box-shadow: 0 12px 35px rgba(197, 160, 89, 0.25);
+        }
+
+        .service-card.highlighted::before {
+            content: 'ÁREA PRINCIPAL';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--primary);
+            color: #0f1b2b;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            z-index: 10;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(197, 160, 89, 0.2);
+            border-color: var(--primary);
+        }
+
+        .service-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-info {
+            padding: 28px;
+            text-align: left;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-info h3 {
+            color: var(--dark-navy);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .service-info p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .btn-practical-info {
+            background-color: var(--dark-navy);
+            color: var(--primary) !important;
+            border: 1px solid var(--primary);
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-practical-info:hover {
+            background-color: var(--primary);
+            color: #0f1b2b !important;
+        }
+
+        /* --- Contacto y Contact-Cards Clickeables --- */
+        .contact-section { 
+            text-align: center; 
+            padding: 90px 0; 
+            background: #ffffff; 
+        }
+
+        .contact-info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .contact-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 22px rgba(197, 160, 89, 0.2);
+            transform: translateY(-3px);
+            background: #ffffff;
+        }
+
+        .contact-card-icon {
+            width: 46px;
+            height: 46px;
+            background: var(--dark-navy);
+            color: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-card-icon {
+            background: var(--primary);
+            color: #0f1b2b;
+        }
+
+        .contact-card-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .contact-card-content h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--dark-navy);
+            margin-bottom: 4px;
+        }
+
+        .contact-card-content p {
+            font-size: 0.92rem;
+            color: #475569;
+            word-break: break-word;
+        }
+
+        .contact-card-link-text {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--primary-hover);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .map-container { 
+            margin-top: 35px; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border: 2px solid var(--dark-navy); 
+        }
+
+        /* --- Modal de Datos Prácticos --- */
+        .modal-practical {
+            display: none;
+            position: fixed;
+            z-index: 2500;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 27, 43, 0.9);
+            backdrop-filter: blur(6px);
+            overflow: hidden;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-container {
+            background: #ffffff;
+            max-width: 750px;
+            width: 92%;
+            max-height: 85vh;
+            margin: 7vh auto;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 22px 28px;
+            background: var(--dark-navy);
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            font-family: 'Cinzel', serif;
+        }
+
+        .modal-close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #ffffff;
+            font-size: 26px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: var(--primary);
+            color: #0f1b2b;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+            overflow-y: auto;
+            background: #ffffff;
+        }
+
+        .modal-summary-text {
+            font-size: 1.05rem;
+            color: var(--dark-navy);
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .modal-doc-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .modal-doc-list li {
+            padding: 10px 14px;
+            background: var(--bg);
+            border-left: 4px solid var(--primary);
+            margin-bottom: 10px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-tip-box {
+            background: var(--primary-light);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            color: #1e293b;
+        }
+
+        .modal-tip-box strong {
+            color: var(--dark-navy);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* --- Footer --- */
+        footer { 
+            background: var(--dark-navy); 
+            color: #94a3b8; 
+            padding: 60px 0 40px 0; 
+            border-top: 4px solid var(--primary);
+        }
+        .footer-content { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 30px; 
+        }
+        .footer-info h3 { color: #ffffff; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Cinzel', serif; }
+        .footer-info p { font-size: 0.92rem; }
+
+        .footer-social { display: flex; gap: 14px; }
+        .social-icon { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 44px; 
+            height: 44px; 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.12); 
+            border-radius: 50%; 
+            color: white; 
+            transition: all 0.3s ease; 
+            text-decoration: none; 
+        }
+        .social-icon svg { width: 20px; height: 20px; fill: currentColor; }
+        .social-icon:hover { 
+            background: var(--primary); 
+            color: #0f1b2b; 
+            transform: translateY(-4px); 
+            border-color: var(--primary); 
+        }
+
+        /* --- Volver Arriba --- */
+        .back-to-top { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 48px; 
+            height: 48px; 
+            background: var(--dark-navy); 
+            color: var(--primary); 
+            border: 2px solid var(--primary); 
+            border-radius: 50%; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3); 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s ease; 
+            z-index: 1500; 
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: scale(1.1); background: var(--primary); color: #0f1b2b; }
+        .back-to-top svg { width: 22px; height: 22px; }
+
+        /* --- Media Queries --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.1rem; }
+            .menu-toggle { display: block; }
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background: var(--dark-navy); 
+                padding: 25px; 
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+                text-align: center; 
+                gap: 20px; 
+                border-bottom: 2px solid var(--primary);
+            }
+            .nav-links.active { display: flex; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .action-buttons-container { flex-direction: column; }
+            .btn-action-equal { width: 100%; max-width: 100%; }
+            .modal-container { width: 95%; height: 90vh; margin: 3vh auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#inicio" class="logo" id="dyn-logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3v18M3 7l9-4 9 4M3 7l4 7a3 3 0 0 0 6 0L9 7M15 7l4 7a3 3 0 0 0 6 0L21 7"></path>
+                    </svg>
+                </div>
+                <div class="logo-text-group">
+                    <span class="logo-title">LAVANDEROS & CIA.</span>
+                    <span class="logo-subtitle">DEFENSORÍA LABORAL & ESTUDIO JURÍDICO</span>
+                </div>
+            </a>
+            
+            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <ul class="nav-links" id="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#equipo">Nuestro Equipo</a></li>
+                <li><a href="#servicios">Áreas de Práctica</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Hero -->
+    <header id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge" id="hero-badge">Especialistas en Defensoría Laboral</div>
+            <h1 id="hero-title">Defensa Integral del Trabajador y Asesoría Legal</h1>
+            <p id="hero-subtitle">Especialistas en Defensoría Laboral en Temuco y la Región de La Araucanía. Representación jurídica firme en despidos injustificados, tutela laboral, autodespido e indemnizaciones, garantizando el pleno resguardo de sus derechos.</p>
+            
+            <!-- Botones de Acción (Ancho Idéntico) -->
+            <div class="action-buttons-container" id="hero-action-buttons">
+                <!-- Inyectado dinámicamente -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container">
+        
+        <!-- Sección Nosotros -->
+        <section id="nosotros" class="about-section">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left;" id="about-title">Sobre Nuestro Estudio Jurídico</h2>
+                
+                <div class="lawyer-badge-card">
+                    <div class="lawyer-badge-icon">⚖️</div>
+                    <div>
+                        <h3 style="font-family:'Cinzel',serif; font-size:1.15rem; color:var(--dark-navy);" id="lawyer-name">Jorge Lavanderos L.</h3>
+                        <p style="color:var(--primary-hover); font-weight:700; font-size:0.82rem; text-transform:uppercase; letter-spacing:1px;" id="lawyer-title">Abogado Principal - Defensor Laboral</p>
+                    </div>
+                </div>
+
+                <p id="about-description" style="color: #475569; font-size: 1.05rem; line-height: 1.7;">En Lavanderos & Cía. nos especializamos con énfasis prioritario en Defensoría Laboral, ofreciendo una representación técnica y rigurosa ante despidos injustificados, autodespidos, tutela de derechos fundamentales y cobro de prestaciones laborales. Asimismo, entregamos asesoría jurídica integral en materias Civiles, Propiedades y Familia.</p>
+                
+                <div class="hours-box">
+                    <strong id="about-hours-label" style="color: var(--dark-navy); font-family: 'Cinzel', serif;">Atención Presencial y Consultas:</strong><br>
+                    <span id="about-hours-details" style="color: #475569; font-size: 0.95rem;">Lunes a Viernes: 09:00 a 18:00 hrs.<br>Atención previa cita programada en Vicuña Mackenna Nº 678, Oficina 904, Temuco.</span>
+                </div>
+            </div>
+            <div class="about-image" id="about-media-container">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000" alt="Sobre Nuestro Estudio Jurídico" class="about-img">
+            </div>
+        </section>
+
+        <!-- Sección Nuevo: Fotos del Abogado y su Equipo -->
+        <section id="equipo" class="team-section" style="margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" id="team-main-title">Nuestro Equipo Legal</h2>
+                    <p class="section-subtitle" id="team-main-subtitle">Conozca a los profesionales letrados comprometidos con la defensa de sus derechos laborales y patrimoniales.</p>
+                </div>
+
+                <div class="team-grid" id="team-cards-container">
+                    <!-- Tarjetas de equipo inyectadas dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Servicios / Áreas de Práctica (Datos Prácticos) -->
+        <section id="servicios" class="section-padding">
+            <div class="section-header">
+                <h2 class="section-title" id="services-main-title">Áreas de Práctica & Datos Prácticos</h2>
+                <p class="section-subtitle" id="services-main-subtitle">Priorizamos la Defensoría Laboral. Presione el botón de cada especialidad para revisar los antecedentes y documentos que le recomendamos recaudar previamente a su consulta.</p>
+            </div>
+
+            <div class="services-grid" id="services-cards-container">
+                <!-- Tarjetas de áreas inyectadas dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="contact-section">
+            <div class="section-header">
+                <h2 class="section-title" id="contact-title">Contacto & Atención Directa</h2>
+                <p class="section-subtitle" id="contact-subtitle">Haga clic sobre cualquiera de nuestras tarjetas de contacto para comunicarse directamente o abrir la ubicación en Google Maps:</p>
+            </div>
+
+            <div class="contact-info-cards" id="contact-details-cards">
+                <!-- Tarjetas clickeables href (Maps, Tel, Mailto) inyectadas dinámicamente -->
+            </div>
+
+            <!-- Botones en sección Contacto (Mismo Ancho) -->
+            <div class="action-buttons-container" id="contact-action-buttons">
+                <!-- Inyectado dinámicamente -->
+            </div>
+
+            <div class="map-container" id="map-holder">
+                <!-- Iframe Map -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3 id="footer-business-name">LAVANDEROS & CIA. ESTUDIO JURÍDICO</h3>
+                <p id="footer-address">Vicuña Mackenna Nº 678, Oficina 904, Temuco, Región de La Araucanía</p>
+                <p id="footer-copyright" style="font-size: 0.85rem; margin-top: 10px; color: #64748b;">2026 Lavanderos & Cía. Estudio Jurídico.</p>
+            </div>
+            <div class="footer-social" id="footer-social-links">
+                <!-- Inyectado dinámicamente -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Volver Arriba -->
+    <button id="back-to-top" class="back-to-top" title="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Modal Modal de Datos Prácticos por Especialidad -->
+    <div id="practicalInfoModal" class="modal-practical">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modal-service-title">Información Previa y Antecedentes</h3>
+                <button class="modal-close-btn" id="closeModalBtn" title="Cerrar">×</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-summary-text" id="modal-service-summary"></p>
+                <h4 style="font-family:'Cinzel',serif; color:var(--dark-navy); margin-bottom:12px; font-size:1.05rem;">📄 Documentación que se recomienda recaudar:</h4>
+                <ul class="modal-doc-list" id="modal-service-docs">
+                    <!-- Lista de documentos -->
+                </ul>
+                <div class="modal-tip-box" id="modal-service-tip">
+                    <!-- Consejo clave -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const data = {
+              "theme": {
+                "primary": "#c5a059",
+                "primary_hover": "#a3813c",
+                "primary_light": "#f7f4ed",
+                "dark_navy": "#0f1b2b",
+                "navy_light": "#1c2d42",
+                "dark_text": "#1e293b",
+                "bg": "#f8fafc"
+              },
+              "business": {
+                "name": "LAVANDEROS & CIA. ESTUDIO JURÍDICO",
+                "lawyer": "Jorge Lavanderos L.",
+                "lawyer_title": "Abogado Principal - Defensor Laboral",
+                "phone": "45-2213165",
+                "phone_numeric": "452213165",
+                "maps_url": "https://maps.google.com/?q=Vicu%C3%B1a+Mackenna+678,+Oficina+904,+Temuco",
+                "whatsapp_cotiza": "https://wa.me/56963081908?text=Hola,%20quisiera%20agendar%20una%20Cita%20Presencial%20para%20consulta%20en%20Defensor%C3%ADa%20Laboral%20o%20Legal.",
+                "linkedin_url": "https://www.linkedin.com/",
+                "email": "jlavanderos@gmail.com",
+                "address": "Vicuña Mackenna Nº 678, Oficina 904, Temuco, Chile",
+                "copyright": "2026 Lavanderos & Cía. Estudio Jurídico.",
+                "map_iframe_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.502840013915!2d-72.5938882235338!3d-38.74068308761019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614d3bf9c85514f%3A0x673dbb893a9032fa!2sVicuna%20Mackenna%20678%2C%20Temuco%2C%20Araucan%C3%ADa!5e0!3m2!1ses!2scl!4v1710000000000!5m2!1ses!2scl"
+              },
+              "images": {
+                "hero_bg": "url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1600')",
+                "about_img": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000"
+              },
+              "hero": {
+                "badge": "Especialistas en Defensoría Laboral - Temuco",
+                "title": "Defensa Integral del Trabajador y Asesoría Legal",
+                "subtitle": "Especialistas en Defensoría Laboral en Temuco y La Araucanía. Representación jurídica experta en despidos injustificados, tutela laboral, autodespido e indemnizaciones, garantizando el pleno resguardo de sus derechos."
+              },
+              "about": {
+                "title": "Sobre Nuestro Estudio Jurídico",
+                "description": "En Lavanderos & Cía. situamos a la Defensoría Laboral en el núcleo de nuestras especialidades, brindando un respaldo enérgico, calificado y comprometido a los trabajadores ante abusos o vulneraciones de sus derechos laborales. Asimismo, contamos con amplia solidez procesal en causas de Derecho Civil, Bienes Raíces y Familia.",
+                "hours_label": "Atención Presencial y Consultas:",
+                "hours_details": "Lunes a Viernes: 09:00 a 18:00 hrs.<br>Atención previa cita programada en Vicuña Mackenna Nº 678, Of. 904, Temuco."
+              },
+              "team": [
+                {
+                  "name": "Jorge Lavanderos L.",
+                  "role": "Abogado Principal - Defensor Laboral",
+                  "description": "Especialista con vasta trayectoria en Litigación Laboral, Tutela de Derechos Fundamentales, autodespidos y negociación de indemnizaciones para trabajadores en la Región de La Araucanía.",
+                  "img": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600"
+                },
+                {
+                  "name": "Dra. Carolina Fuentes M.",
+                  "role": "Abogada Asociada - Civil & Familia",
+                  "description": "Especializada en litigios civiles, estudio de títulos inmobiliarios, indemnización de perjuicios y tramitación de causas complejas en Tribunales de Familia.",
+                  "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600"
+                },
+                {
+                  "name": "Rodrigo Morales V.",
+                  "role": "Asistente Jurídico & Gestión Procesal",
+                  "description": "Encargado de la recopilación de antecedentes, seguimiento diario de causas en la Inspección del Trabajo y coordinación de citas con clientes.",
+                  "img": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600"
+                }
+              ],
+              "services": {
+                "section_title": "Áreas de Práctica & Datos Prácticos",
+                "section_subtitle": "Revisión preventiva de antecedentes en cada caso. Seleccione el botón de datos prácticos para conocer los documentos clave que debe presentar en su consulta.",
+                "categories": [
+                  {
+                    "id": "defensoria-laboral",
+                    "is_main": true,
+                    "title": "1. Defensoría Laboral (Área Principal)",
+                    "description": "Representación especializada ante despidos injustificados, autodespido (despido indirecto), tutela laboral por acoso o vulneración de derechos, cobro de prestaciones, cotizaciones no pagadas e indemnizaciones.",
+                    "cover_img": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800",
+                    "practical_info": {
+                      "summary": "Antecedentes clave a reunir antes de presentar una demanda o acudir a la Inspección del Trabajo:",
+                      "docs": [
+                        "Carta de Despido (si le fue entregada) o registro escrito del despido verbal.",
+                        "Contrato de trabajo original y todos sus anexos o modificaciones.",
+                        "Últimas 3 a 12 liquidaciones de sueldo firmadas o transferidas.",
+                        "Certificado de cotizaciones previsionales actualizado (AFP, Fonasa/Isapre, AFC).",
+                        "Correos, mensajes de WhatsApp o documentos que acrediten el vínculo o la infracción laboral."
+                      ],
+                      "key_tips": "¡Atención al Plazo! Dispone de 60 días hábiles contados desde la fecha del despido para accionar judicialmente. Consulte de forma inmediata para resguardar sus derechos."
+                    }
+                  },
+                  {
+                    "id": "derecho-civil",
+                    "is_main": false,
+                    "title": "2. Derecho Civil y Propiedades",
+                    "description": "Redacción y revisión de contratos, juicios ordinarios y ejecutivos, indemnización de perjuicios, estudios de títulos, compraventas de bienes raíces y partición de bienes.",
+                    "cover_img": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=800",
+                    "practical_info": {
+                      "summary": "Antecedentes recomendados para asesoría en materias civiles o propiedades:",
+                      "docs": [
+                        "Copia de la Escritura Pública, promesa de compraventa o contrato en disputa.",
+                        "Certificado de Dominio Vigente y de Hipotecas/Gravámenes (en inmuebles).",
+                        "Comprobantes de pago, transferencias o facturas relativas al incumplimiento.",
+                        "Cartas certificadas, notificaciones o comunicaciones enviadas entre las partes."
+                      ],
+                      "key_tips": "Reunir contratos previos y comprobantes de pago permite evaluar la viabilidad de acciones de cumplimiento forzoso o indemnización de perjuicios de manera ágil."
+                    }
+                  },
+                  {
+                    "id": "derecho-familia",
+                    "is_main": false,
+                    "title": "3. Familia & Sucesiones",
+                    "description": "Tramitación de divorcios (mutuo acuerdo o unilateral), pensión de alimentos, cuidado personal, testamentos, posesión efectiva y partición de herencias.",
+                    "cover_img": "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?q=80&w=800",
+                    "practical_info": {
+                      "summary": "Documentos e información requeridos para causas de familia o hereditarias:",
+                      "docs": [
+                        "Certificados oficiales de Matrimonio, Nacimiento de los hijos o Defunción.",
+                        "Acta de Cese de Convivencia o pruebas fehacientes de la separación.",
+                        "Acreditación de gastos mensuales e ingresos (para pensiones de alimentos).",
+                        "Inventario básico de bienes patrimoniales para trámites de herencia o partición."
+                      ],
+                      "key_tips": "Recuerde que en la mayoría de las materias de familia (alimentos, cuidado personal), la ley exige una instancia de mediación previa antes de interponer la demanda."
+                    }
+                  }
+                ]
+              },
+              "contact": {
+                "title": "Contacto & Atención Directa",
+                "subtitle": "Haga clic directamente sobre cada medio para iniciar llamadas, correos o abrir la ruta en Google Maps:"
+              }
+            };
+
+            initTemplate(data);
+
+            function initTemplate(data) {
+                const root = document.documentElement;
+                
+                root.style.setProperty('--primary', data.theme.primary);
+                root.style.setProperty('--primary-hover', data.theme.primary_hover);
+                root.style.setProperty('--primary-light', data.theme.primary_light);
+                root.style.setProperty('--dark-navy', data.theme.dark_navy);
+                root.style.setProperty('--navy-light', data.theme.navy_light);
+                root.style.setProperty('--dark-text', data.theme.dark_text);
+                root.style.setProperty('--bg', data.theme.bg);
+
+                document.getElementById('site-title').innerText = data.business.name;
+
+                document.getElementById('inicio').style.background = data.images.hero_bg;
+                document.getElementById('hero-badge').innerText = data.hero.badge;
+                document.getElementById('hero-title').innerText = data.hero.title;
+                document.getElementById('hero-subtitle').innerText = data.hero.subtitle;
+
+                document.getElementById('lawyer-name').innerText = data.business.lawyer;
+                document.getElementById('lawyer-title').innerText = data.business.lawyer_title;
+
+                document.getElementById('about-title').innerText = data.about.title;
+                document.getElementById('about-description').innerText = data.about.description;
+                document.getElementById('about-hours-label').innerText = data.about.hours_label;
+                document.getElementById('about-hours-details').innerHTML = data.about.hours_details;
+                document.getElementById('about-media-container').innerHTML = `
+                    <img src="${data.images.about_img}" alt="${data.about.title}" class="about-img">
+                `;
+
+                // Render Equipo
+                renderTeamSection(data.team);
+
+                // Render Botones con mismo ancho
+                renderActionButtons(data.business);
+
+                // Render Contact Cards Clickeables con href
+                renderContactCards(data.business);
+
+                // Render Servicios y Reseñas Prácticas
+                document.getElementById('services-main-title').innerText = data.services.section_title;
+                document.getElementById('services-main-subtitle').innerText = data.services.section_subtitle;
+                renderServicesCards(data.services.categories);
+
+                document.getElementById('contact-title').innerText = data.contact.title;
+                document.getElementById('contact-subtitle').innerText = data.contact.subtitle;
+
+                document.getElementById('map-holder').innerHTML = `
+                    <iframe src="${data.business.map_iframe_url}" width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                `;
+
+                document.getElementById('footer-business-name').innerText = data.business.name;
+                document.getElementById('footer-address').innerText = data.business.address;
+                document.getElementById('footer-copyright').innerText = data.business.copyright;
+
+                document.getElementById('footer-social-links').innerHTML = `
+                    <a href="tel:${data.business.phone_numeric}" class="social-icon" title="Llamar a Oficina"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+                    <a href="mailto:${data.business.email}" class="social-icon" title="Enviar Correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+                    <a href="${data.business.linkedin_url}" target="_blank" class="social-icon" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.47 1.47 0 1 0 0 2.94 1.47 1.47 0 0 0 0-2.94z"/></svg></a>
+                `;
+            }
+
+            function renderTeamSection(teamMembers) {
+                const container = document.getElementById('team-cards-container');
+                container.innerHTML = '';
+
+                teamMembers.forEach(member => {
+                    const card = document.createElement('div');
+                    card.className = 'team-card';
+                    card.innerHTML = `
+                        <div class="team-img-wrapper">
+                            <img src="${member.img}" alt="${member.name}" loading="lazy">
+                        </div>
+                        <div class="team-info">
+                            <div class="team-name">${member.name}</div>
+                            <div class="team-role">${member.role}</div>
+                            <div class="team-desc">${member.description}</div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            function renderActionButtons(biz) {
+                const mapIconHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>`;
+                const calendarIconHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`;
+
+                const buttonsHTML = `
+                    <a href="${biz.maps_url}" target="_blank" class="btn-action-equal btn-maps">
+                        ${mapIconHTML} Cómo Llegar a la Oficina
+                    </a>
+                    <a href="${biz.whatsapp_cotiza}" target="_blank" class="btn-action-equal btn-appointment">
+                        ${calendarIconHTML} Agendar Cita Presencial
+                    </a>
+                `;
+
+                document.getElementById('hero-action-buttons').innerHTML = buttonsHTML;
+                document.getElementById('contact-action-buttons').innerHTML = buttonsHTML;
+            }
+
+            function renderContactCards(biz) {
+                const container = document.getElementById('contact-details-cards');
+                container.innerHTML = `
+                    <a href="${biz.maps_url}" target="_blank" class="contact-card" title="Ver en Google Maps">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="contact-card-content">
+                            <h4>Dirección Oficina</h4>
+                            <p>${biz.address}</p>
+                            <span class="contact-card-link-text">Ver en Google Maps ↗</span>
+                        </div>
+                    </a>
+
+                    <a href="tel:${biz.phone_numeric}" class="contact-card" title="Llamar por Teléfono">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="contact-card-content">
+                            <h4>Teléfono de Contacto</h4>
+                            <p>Fono: ${biz.phone}</p>
+                            <span class="contact-card-link-text">Iniciar Llamada 📞</span>
+                        </div>
+                    </a>
+
+                    <a href="mailto:${biz.email}" class="contact-card" title="Enviar Correo Electrónico">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="contact-card-content">
+                            <h4>Correo Electrónico</h4>
+                            <p>${biz.email}</p>
+                            <span class="contact-card-link-text">Enviar Mensaje ✉️</span>
+                        </div>
+                    </a>
+                `;
+            }
+
+            function renderServicesCards(categories) {
+                const container = document.getElementById('services-cards-container');
+                container.innerHTML = '';
+
+                categories.forEach(cat => {
+                    const card = document.createElement('div');
+                    card.className = `service-card ${cat.is_main ? 'highlighted' : ''}`;
+                    card.innerHTML = `
+                        <div class="service-img-wrapper">
+                            <img src="${cat.cover_img}" alt="${cat.title}">
+                        </div>
+                        <div class="service-info">
+                            <div>
+                                <h3>${cat.title}</h3>
+                                <p>${cat.description}</p>
+                            </div>
+                            <button class="btn-practical-info" onclick="openPracticalInfoModal('${cat.id}')">
+                                📋 Ver Antecedentes & Datos Prácticos
+                            </button>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+
+            /* --- Sistema Modal de Datos Prácticos --- */
+            const practicalModal = document.getElementById('practicalInfoModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalTitle = document.getElementById('modal-service-title');
+            const modalSummary = document.getElementById('modal-service-summary');
+            const modalDocs = document.getElementById('modal-service-docs');
+            const modalTip = document.getElementById('modal-service-tip');
+
+            window.openPracticalInfoModal = function(categoryId) {
+                const category = data.services.categories.find(c => c.id === categoryId);
+                if (!category) return;
+
+                modalTitle.innerText = `${category.title}`;
+                modalSummary.innerText = category.practical_info.summary;
+
+                modalDocs.innerHTML = '';
+                category.practical_info.docs.forEach(doc => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span>📌</span> <span>${doc}</span>`;
+                    modalDocs.appendChild(li);
+                });
+
+                modalTip.innerHTML = `<strong>💡 Recomendación Clave del Abogado:</strong> ${category.practical_info.key_tips}`;
+
+                practicalModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            };
+
+            function closePracticalModal() {
+                practicalModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            closeModalBtn.addEventListener('click', closePracticalModal);
+            practicalModal.addEventListener('click', (e) => {
+                if (e.target === practicalModal) closePracticalModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closePracticalModal();
+            });
+
+            /* --- Navegación Móvil --- */
+            const menuToggle = document.getElementById('mobile-menu');
+            const navList = document.getElementById('nav-list');
+            menuToggle.addEventListener('click', () => navList.classList.toggle('active'));
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => navList.classList.remove('active'));
+            });
+
+            /* --- Botón Volver Arriba --- */
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) backToTop.classList.add('visible');
+                else backToTop.classList.remove('visible');
+            });
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        });
+    </script>
+
+</body>
+</html>
